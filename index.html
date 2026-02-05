@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MG - Nos Catalogues | Promotions Ramadan 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
         :root { --mg-red: #e30613; --mg-blue: #009ee3; }
         .bg-mg-red { background-color: var(--mg-red); }
         .text-mg-red { color: var(--mg-red); }
-        .border-mg-red { border-color: var(--mg-red); }
+        h1, h2, h3, .font-heading { font-weight: 900; letter-spacing: -0.025em; }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 font-sans text-gray-900">
 
     <nav class="bg-white shadow-sm py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
@@ -23,22 +35,22 @@
 
     <main class="container mx-auto px-4 py-8">
         <section class="mb-12">
-            <h2 class="text-2xl font-black mb-6 border-l-4 border-mg-red pl-4 uppercase">Catalogue à la Une</h2>
+            <h2 class="text-3xl font-heading mb-6 border-l-8 border-mg-red pl-4 uppercase">Catalogue à la Une</h2>
             <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-200">
                 <div class="md:w-1/3 relative bg-gray-200">
-                    <img src="logo.png" alt="Promo Ramadan" class="w-full h-full object-contain p-8">
-                    <div class="absolute top-4 left-4 bg-mg-red text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                    <img src="logo.png" alt="Promo Ramadan" class="w-full h-full object-contain p-10 bg-white">
+                    <div class="absolute top-4 left-4 bg-mg-red text-white px-4 py-1 rounded-full text-xs font-black animate-pulse">
                         EN COURS
                     </div>
                 </div>
                 <div class="p-8 md:w-2/3 flex flex-col justify-center">
-                    <h3 class="text-3xl font-black text-gray-900 mb-2 uppercase">Promo Ramadan 2026</h3>
-                    <p class="text-gray-600 mb-6 italic">Valable du 31 janvier au 18 février 2026. Découvrez nos meilleures offres sur le thon, l'huile et bien plus encore.</p>
+                    <h3 class="text-4xl font-heading text-gray-900 mb-2 uppercase">Promo Ramadan 2026</h3>
+                    <p class="text-gray-600 mb-6 text-lg">Valable du 31 janvier au 18 février 2026. Découvrez nos meilleures offres sur le thon, l'huile et bien plus encore.</p>
                     <div class="flex flex-wrap gap-4">
-                        <button onclick="openModal('CAT_RAMADAN.pdf')" class="bg-mg-red text-white px-8 py-3 rounded-xl font-bold hover:bg-red-700 transition shadow-lg">
+                        <button onclick="openModal('CAT_RAMADAN.pdf')" class="bg-mg-red text-white px-10 py-4 rounded-xl font-black hover:bg-red-700 transition shadow-lg uppercase tracking-wide">
                             Feuilleter
                         </button>
-                        <a href="CAT_RAMADAN.pdf" download class="border-2 border-gray-200 px-8 py-3 rounded-xl font-bold hover:bg-gray-50 transition flex items-center">
+                        <a href="CAT_RAMADAN.pdf" download class="border-2 border-gray-300 px-10 py-4 rounded-xl font-black hover:bg-gray-50 transition uppercase tracking-wide flex items-center">
                             Télécharger PDF
                         </a>
                     </div>
@@ -47,61 +59,55 @@
         </section>
 
         <section>
-            <h2 class="text-2xl font-black mb-6 border-l-4 border-mg-red pl-4 uppercase">Autres Catalogues</h2>
+            <h2 class="text-3xl font-heading mb-6 border-l-8 border-mg-red pl-4 uppercase">Autres Catalogues</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div class="bg-white p-4 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col">
-                    <div class="h-48 w-full bg-gray-50 rounded-2xl mb-4 flex items-center justify-center">
+                <div class="bg-white p-6 rounded-3xl shadow-md hover:shadow-2xl transition-all border border-gray-100 flex flex-col">
+                    <div class="h-48 w-full bg-gray-50 rounded-2xl mb-4 flex items-center justify-center border-2 border-dashed border-gray-200">
                         <span class="text-gray-400 font-bold">Aperçu Électroménager</span>
                     </div>
-                    <h4 class="font-bold text-lg leading-tight">Maison & Électroménager</h4>
-                    <p class="text-sm text-gray-500 mb-4 flex-grow">Micro-ondes, Fours et Robots[cite: 2166, 2175].</p>
-                    <button onclick="openModal('ELECTRO.pdf')" class="w-full py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-black transition">Voir les offres</button>
+                    <h4 class="font-black text-xl leading-tight uppercase">Maison & Électroménager</h4>
+                    <p class="text-sm text-gray-500 mt-2 mb-6 flex-grow italic">Fours, Micro-ondes et robots ménagers.</p>
+                    <button onclick="openModal('ELECTRO.pdf')" class="w-full py-4 bg-gray-900 text-white rounded-xl font-black uppercase hover:bg-black transition">Voir les offres</button>
                 </div>
 
-                <div class="bg-white p-4 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col">
-                    <div class="h-48 w-full bg-gray-50 rounded-2xl mb-4 flex items-center justify-center">
+                <div class="bg-white p-6 rounded-3xl shadow-md hover:shadow-2xl transition-all border border-gray-100 flex flex-col">
+                    <div class="h-48 w-full bg-gray-50 rounded-2xl mb-4 flex items-center justify-center border-2 border-dashed border-gray-200">
                         <span class="text-gray-400 font-bold">Aperçu J'aime</span>
                     </div>
-                    <h4 class="font-bold text-lg leading-tight">Produit Distributeur "J'aime"</h4>
-                    <p class="text-sm text-gray-500 mb-4 flex-grow">Élu produit distributeur de l'année 2025[cite: 2026].</p>
-                    <button onclick="openModal('JAIME.pdf')" class="w-full py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-black transition">Voir le catalogue</button>
+                    <h4 class="font-black text-xl leading-tight uppercase">Produit "J'aime"</h4>
+                    <p class="text-sm text-gray-500 mt-2 mb-6 flex-grow italic">Élu produit distributeur de l'année 2025-2026.</p>
+                    <button onclick="openModal('JAIME.pdf')" class="w-full py-4 bg-gray-900 text-white rounded-xl font-black uppercase hover:bg-black transition">Voir le catalogue</button>
                 </div>
+
             </div>
         </section>
     </main>
 
-    <div id="catalogModal" class="fixed inset-0 bg-black/90 z-[100] hidden flex items-center justify-center p-4">
-        <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-5xl leading-none hover:text-mg-red z-110">&times;</button>
-        <div class="w-full max-w-6xl h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl relative">
+    <div id="catalogModal" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-5xl font-light hover:text-mg-red transition-colors">&times;</button>
+        <div class="w-full max-w-5xl h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl">
             <iframe id="pdfFrame" src="" class="w-full h-full" frameborder="0"></iframe>
         </div>
     </div>
 
     <script>
         function openModal(pdfUrl) {
-            // Utilisation directe du fichier. 
-            // Si l'aperçu échoue encore, utilisez : `https://mozilla.github.io/pdf.js/web/viewer.html?file=${window.location.origin}/MG/${pdfUrl}`
-            const viewerUrl = pdfUrl; 
-            
-            document.getElementById('pdfFrame').src = viewerUrl;
+            // Pour corriger l'aperçu sur GitHub Pages :
+            // On utilise directement l'URL relative. Le navigateur affichera son propre lecteur.
+            document.getElementById('pdfFrame').src = pdfUrl;
             document.getElementById('catalogModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
-
         function closeModal() {
             document.getElementById('catalogModal').classList.add('hidden');
             document.getElementById('pdfFrame').src = '';
             document.body.style.overflow = 'auto';
         }
-
-        // Fermer le modal en cliquant à l'extérieur
-        window.onclick = function(event) {
-            const modal = document.getElementById('catalogModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+        // Fermer si on clique sur le fond noir
+        document.getElementById('catalogModal').onclick = function(e) {
+            if(e.target.id === 'catalogModal') closeModal();
+        };
     </script>
 </body>
 </html>

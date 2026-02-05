@@ -1,67 +1,59 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>MG Catalogue Interactif</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
-    <style>
-        body { background-color: #f0f0f0; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    
+    /* Animation de flottement pour les catalogues */
+    .catalog-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+    .catalog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Badge clignotant pour le catalogue actuel */
+    .badge-live {
+        display: inline-flex;
+        align-items: center;
+        background: #fee2e2;
+        color: #ef4444;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+    .dot {
+        height: 8px; width: 8px; background-color: #ef4444;
+        border-radius: 50%; display: inline-block;
+        margin-right: 6px; animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+</style>
+
+<div class="max-w-sm catalog-card bg-white rounded-3xl overflow-hidden p-4">
+    <div class="relative">
+        <img src="couverture-mg.jpg" class="rounded-2xl w-full h-64 object-cover" alt="Catalogue">
+        <div class="absolute top-3 left-3">
+            <span class="badge-live"><span class="dot"></span>EN COURS</span>
+        </div>
+    </div>
+    <div class="mt-4">
+        <h3 class="text-xl font-black text-gray-900 leading-tight">Le mois des bonnes affaires</h3>
+        <p class="text-gray-500 text-sm mt-1">Valable du 01 au 15 Février 2024</p>
         
-        #mg-header { width: 100%; background: #e30613; color: white; padding: 15px; text-align: center; margin-bottom: 30px; }
-
-        /* Style du Flipbook */
-        #flipbook {
-            width: 800px;
-            height: 500px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        #flipbook .page {
-            width: 400px;
-            height: 500px;
-            background-color: white;
-            line-height: 500px;
-            text-align: center;
-            font-size: 20px;
-        }
-
-        #flipbook img { width: 100%; height: 100%; object-fit: cover; }
-
-        .controls { margin-top: 20px; }
-        button { background: #009ee3; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-    </style>
-</head>
-<body>
-
-    <div id="mg-header">
-        <h1>Catalogue Magasin Général</h1>
-        <p>Feuilletez vos offres en ligne</p>
+        <div class="mt-6 flex gap-2">
+            <button onclick="openFlipbook()" class="flex-1 bg-[#e30613] text-white py-3 rounded-xl font-bold hover:bg-red-700 transition-colors">
+                Feuilleter
+            </button>
+            <button class="bg-gray-100 p-3 rounded-xl hover:bg-gray-200 transition-colors">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            </button>
+        </div>
     </div>
-
-    <div id="flipbook">
-        <div class="hard"> <img src="page1.jpg" alt="Couverture MG"> </div>
-        <div> <img src="page2.jpg" alt="Promo 1"> </div>
-        <div> <img src="page3.jpg" alt="Promo 2"> </div>
-        <div> <img src="page4.jpg" alt="Promo 3"> </div>
-        <div class="hard"> <img src="page_fin.jpg" alt="Dernière page"> </div>
-    </div>
-
-    <div class="controls">
-        <button onclick="$('#flipbook').turn('previous')">Précédent</button>
-        <button onclick="$('#flipbook').turn('next')">Suivant</button>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            $("#flipbook").turn({
-                width: 800,
-                height: 500,
-                autoCenter: true,
-                duration: 1000 // Vitesse de l'animation
-            });
-        });
-    </script>
-
-</body>
-</html> 
+</div>

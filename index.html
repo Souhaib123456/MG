@@ -1,59 +1,88 @@
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG - Nos Catalogues | Promotions Ramadan 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --mg-red: #e30613; --mg-blue: #009ee3; }
+        .bg-mg-red { background-color: var(--mg-red); }
+        .text-mg-red { color: var(--mg-red); }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
 
-<style>
-    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-    
-    /* Animation de flottement pour les catalogues */
-    .catalog-card {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-    .catalog-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/fr/0/07/Logo_Magasin_General.png" alt="Logo MG" class="h-10">
+            <span class="font-bold text-mg-red hidden md:block">أكثر من 140 عام ثقتكم فينا تتجدد [cite: 1657]</span>
+        </div>
+    </nav>
 
-    /* Badge clignotant pour le catalogue actuel */
-    .badge-live {
-        display: inline-flex;
-        align-items: center;
-        background: #fee2e2;
-        color: #ef4444;
-        padding: 4px 12px;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: bold;
-    }
-    .dot {
-        height: 8px; width: 8px; background-color: #ef4444;
-        border-radius: 50%; display: inline-block;
-        margin-right: 6px; animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-        70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
-        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-    }
-</style>
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-12">
+            <h2 class="text-2xl font-black mb-6 border-l-4 border-mg-red pl-4 uppercase">Catalogue à la Une</h2>
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-200">
+                <div class="md:w-1/3 relative bg-gray-200">
+                    <img src="couverture_ramadan.jpg" alt="Promo Ramadan" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4 bg-mg-red text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                        EN COURS
+                    </div>
+                </div>
+                <div class="p-8 md:w-2/3 flex flex-col justify-center">
+                    <h3 class="text-3xl font-black text-gray-900 mb-2">PROMO RAMADAN 2026</h3>
+                    <p class="text-gray-600 mb-6">Valable du 31 janvier au 18 février 2026[cite: 3, 9]. Découvrez nos meilleures offres sur le thon, l'huile et bien plus encore.</p>
+                    <div class="flex gap-4">
+                        <button onclick="openModal('CAT_RAMADAN.pdf')" class="bg-mg-red text-white px-8 py-3 rounded-xl font-bold hover:scale-105 transition">Feuilleter en ligne</button>
+                        <a href="CAT_RAMADAN.pdf" download class="border-2 border-gray-200 px-8 py-3 rounded-xl font-bold hover:bg-gray-50 transition">Télécharger PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="max-w-sm catalog-card bg-white rounded-3xl overflow-hidden p-4">
-    <div class="relative">
-        <img src="couverture-mg.jpg" class="rounded-2xl w-full h-64 object-cover" alt="Catalogue">
-        <div class="absolute top-3 left-3">
-            <span class="badge-live"><span class="dot"></span>EN COURS</span>
+        <section>
+            <h2 class="text-2xl font-black mb-6 border-l-4 border-mg-red pl-4 uppercase">Autres Catalogues</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-4 rounded-3xl shadow-md hover:shadow-lg transition">
+                    <img src="thumb_electro.jpg" class="rounded-2xl mb-4 h-48 w-full object-cover bg-gray-100">
+                    <h4 class="font-bold text-lg leading-tight">Maison & Électroménager</h4>
+                    <p class="text-sm text-gray-500 mb-4">Micro-ondes, Fours et Robots[cite: 2166, 2175].</p>
+                    <button onclick="openModal('ELECTRO.pdf')" class="w-full py-2 bg-gray-900 text-white rounded-lg font-medium">Voir les offres</button>
+                </div>
+
+                <div class="bg-white p-4 rounded-3xl shadow-md hover:shadow-lg transition">
+                    <img src="thumb_marque_propre.jpg" class="rounded-2xl mb-4 h-48 w-full object-cover bg-gray-100">
+                    <h4 class="font-bold text-lg leading-tight">Produit Distributeur "J'aime"</h4>
+                    <p class="text-sm text-gray-500 mb-4">Élu produit distributeur de l'année 2025[cite: 2026].</p>
+                    <button onclick="openModal('JAIME.pdf')" class="w-full py-2 bg-gray-900 text-white rounded-lg font-medium">Voir le catalogue</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="catalogModal" class="fixed inset-0 bg-black/90 z-[100] hidden flex items-center justify-center">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-5xl hover:text-mg-red">&times;</button>
+        <div class="w-[95%] h-[90vh] bg-white rounded-xl overflow-hidden">
+            <iframe id="pdfFrame" src="" class="w-full h-full" frameborder="0"></iframe>
         </div>
     </div>
-    <div class="mt-4">
-        <h3 class="text-xl font-black text-gray-900 leading-tight">Le mois des bonnes affaires</h3>
-        <p class="text-gray-500 text-sm mt-1">Valable du 01 au 15 Février 2024</p>
-        
-        <div class="mt-6 flex gap-2">
-            <button onclick="openFlipbook()" class="flex-1 bg-[#e30613] text-white py-3 rounded-xl font-bold hover:bg-red-700 transition-colors">
-                Feuilleter
-            </button>
-            <button class="bg-gray-100 p-3 rounded-xl hover:bg-gray-200 transition-colors">
-                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-            </button>
-        </div>
-    </div>
-</div>
+
+    <script>
+        function openModal(pdfUrl) {
+            // Utilisation d'un viewer PDF (ex: Google Drive viewer ou votre viewer flipbook)
+            const viewerUrl = `https://docs.google.com/viewer?url=${window.location.origin}/${pdfUrl}&embedded=true`;
+            document.getElementById('pdfFrame').src = viewerUrl;
+            document.getElementById('catalogModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('catalogModal').classList.add('hidden');
+            document.getElementById('pdfFrame').src = '';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
